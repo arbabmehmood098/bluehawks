@@ -1,0 +1,175 @@
+{% load static %}
+<style>
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@600;700&display=swap');
+header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    height: 70px;
+    min-height: 70px;
+    padding: 0 36px;
+    background: linear-gradient(90deg, #0a2342 0%, #185a9d 100%);
+    color: #fff;
+    border-bottom: 1.5px solid #06162b;
+    box-shadow: 0 4px 18px 0 rgba(10,35,66,0.10);
+    font-family: 'Montserrat', Arial, sans-serif;
+    position: relative;
+    z-index: 1000;
+    transition: box-shadow 0.3s;
+}
+header:hover {
+    box-shadow: 0 8px 32px 0 rgba(10,35,66,0.18);
+}
+header > div {
+    flex: 0 0 auto;
+    height: 100%;
+    display: flex;
+    align-items: center;
+}
+header img {
+    height: 62px;
+    width: 62px;
+    min-width: 62px;
+    min-height: 62px;
+    border-radius: 50%;
+    object-fit: cover;
+    border: 2.5px solid #fff;
+    background: #fff;
+    box-shadow: 0 2px 8px 0 rgba(24,90,157,0.10);
+    transition: transform 0.3s cubic-bezier(.4,2,.6,1), box-shadow 0.3s;
+}
+header img:hover {
+    transform: scale(1.08) rotate(-6deg);
+    box-shadow: 0 6px 24px 0 rgba(24,90,157,0.18);
+}
+nav {
+    flex: 1 1 auto;
+    display: flex;
+    justify-content: flex-end;
+    gap: 32px;
+    align-items: center;
+    height: 100%;
+    transition: all 0.3s;
+}
+nav a {
+    text-decoration: none;
+    color: #fff;
+    font-weight: 600;
+    font-size: 1.13rem;
+    padding: 8px 18px;
+    border-radius: 6px;
+    transition: background 0.22s, color 0.22s, box-shadow 0.22s;
+    position: relative;
+    letter-spacing: 0.5px;
+}
+nav a:hover, nav a:focus {
+    background: rgba(24,90,157,0.18);
+    color: #ffe082;
+    box-shadow: 0 2px 8px 0 rgba(24,90,157,0.10);
+}
+nav a::after {
+    content: '';
+    display: block;
+    margin: 0 auto;
+    width: 0%;
+    height: 2px;
+    background: #ffe082;
+    transition: width 0.22s;
+}
+nav a:hover::after, nav a:focus::after {
+    width: 80%;
+}
+.mobile-toggle {
+    display: none;
+}
+@media (max-width: 900px) {
+    header {
+        padding: 0 12px;
+    }
+    nav {
+        gap: 16px;
+    }
+}
+@media (max-width: 700px) {
+    header {
+        padding: 0 16px;
+        height: 70px;
+    }
+    .mobile-toggle {
+        display: flex !important;
+        align-items: center;
+        justify-content: center;
+        width: 48px;
+        height: 48px;
+        font-size: 2.4rem;
+        background: none;
+        border: none;
+        color: #fff;
+        cursor: pointer;
+        z-index: 1001;
+        padding: 0;
+        margin: 0;
+        transition: color 0.2s;
+    }
+    .mobile-toggle:active {
+        color: #ffe082;
+    }
+    nav {
+        position: fixed;
+        top: 70px;
+        left: 0;
+        right: 0;
+        flex-direction: column;
+        gap: 0;
+        background: linear-gradient(90deg, #0a2342 0%, #185a9d 100%);
+        box-shadow: 0 8px 32px 0 rgba(10,35,66,0.18);
+        max-height: 0;
+        overflow: hidden;
+        transition: max-height 0.35s ease-out;
+        padding: 0;
+    }
+    header.nav-open nav {
+        max-height: 400px;
+        padding: 20px 0;
+    }
+    nav a {
+        width: 100%;
+        text-align: center;
+        padding: 12px 0;
+        border-radius: 0;
+    }
+    nav a:hover {
+        background: rgba(255, 255, 255, 0.1);
+    }
+    nav a::after {
+        display: none;
+    }
+}
+</style>
+<script>
+function toggleNav() {
+    var header = document.querySelector('header');
+    header.classList.toggle('nav-open');
+    
+    // Close menu when clicking on a link
+    var navLinks = document.querySelectorAll('nav a');
+    navLinks.forEach(function(link) {
+        link.addEventListener('click', function() {
+            header.classList.remove('nav-open');
+        });
+    });
+}
+</script>
+<header>
+    <div>
+        <img src="{% static 'images/Logo.png' %}" alt="Logo" />
+    </div>
+    <button class="mobile-toggle" onclick="toggleNav()" aria-label="Toggle navigation">&#9776;</button>
+    <nav>
+        <a href="/">Home</a>
+        <a href="/about/">About</a>
+        <a href="/services/">Services</a>
+        <a href="/clients/">Clients</a>
+        <a href="/contact/">Contact</a>
+    </nav>
+</header>

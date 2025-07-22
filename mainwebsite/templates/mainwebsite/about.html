@@ -1,0 +1,294 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>About | Bluehawks</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css">
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@600;700&display=swap');
+        html, body {
+            margin: 0;
+            padding: 0;
+            width: 100vw;
+            min-width: 100vw;
+            box-sizing: border-box;
+            background: #0a2342;
+            font-family: 'Montserrat', Arial, sans-serif;
+        }
+        body {
+            width: 100vw;
+            min-width: 100vw;
+            overflow-x: hidden;
+            background: linear-gradient(90deg, #0a2342 0%, #185a9d 100%);
+        }
+        .about-banner-img {
+            width: 100vw;
+            height: 25vh;
+            object-fit: cover;
+            display: block;
+            border-radius: 0 0 24px 24px;
+            box-shadow: 0 8px 32px 0 rgba(10,35,66,0.18);
+        }
+        .about-bar {
+            width: 100vw;
+            background: linear-gradient(90deg, #0a2342 0%, #185a9d 100%);
+            color: #ffe082;
+            text-align: center;
+            font-size: 2.1rem;
+            font-weight: 700;
+            padding: 28px 0 20px 0;
+            letter-spacing: 1px;
+            margin-bottom: 3px;
+            border-radius: 0 0 18px 18px;
+            box-shadow: 0 2px 12px rgba(10,35,66,0.10);
+        }
+        .about-fss-container {
+            width: 100vw;
+            margin: 0;
+            background: linear-gradient(120deg, #0a2342 60%, #185a9d 100%);
+            padding: 40px 0;
+            border-radius: 18px;
+            box-shadow: 0 2px 18px rgba(10,35,66,0.10);
+            display: flex;
+            flex-direction: row;
+            align-items: center;
+            gap: 32px;
+            margin-bottom: 32px;
+        }
+        .about-fss-text {
+            flex: 1 1 0;
+            min-width: 220px;
+            padding-left: 40px;
+            padding-right: 20px;
+            color: #fff;
+        }
+        .about-fss-image {
+            flex: 1 1 0;
+            min-width: 220px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            padding-right: 40px;
+            padding-left: 20px;
+        }
+        .about-fss-image img {
+            width: 90%;
+            max-width: 420px;
+            height: auto;
+            border-radius: 18px;
+            object-fit: cover;
+            box-shadow: 0 2px 12px rgba(10,35,66,0.10);
+        }
+        .about-fss-container h1 {
+            color: #ffe082;
+            margin-bottom: 20px;
+            font-size: 2.1rem;
+            letter-spacing: 1px;
+        }
+        .about-fss-container p {
+            margin-bottom: 30px;
+            font-size: 1.13rem;
+            text-align: justify;
+            color: #cfd8e3;
+        }
+        .about-team-bar {
+            width: 100vw;
+            background: linear-gradient(90deg, #0a2342 0%, #185a9d 100%);
+            color: #ffe082;
+            text-align: center;
+            font-size: 2.1rem;
+            font-weight: 700;
+            padding: 28px 0 20px 0;
+            letter-spacing: 1px;
+            margin-bottom: 3px;
+            border-radius: 0 0 18px 18px;
+            box-shadow: 0 2px 12px rgba(10,35,66,0.10);
+        }
+        .about-team-section {
+            width: 100vw;
+            background: transparent;
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            gap: 32px 24px;
+            padding: 32px 0 24px 0;
+            margin-bottom: 3px;
+        }
+        .about-team-member {
+            position: relative;
+            background: #fff;
+            border-radius: 18px;
+            box-shadow: 0 4px 18px rgba(10,35,66,0.10);
+            width: 370px;
+            max-width: 96vw;
+            height: 260px;
+            overflow: hidden;
+            display: flex;
+            align-items: flex-end;
+            justify-content: center;
+            text-align: center;
+            margin-bottom: 0;
+            transition: transform 0.18s, box-shadow 0.18s;
+        }
+        .about-team-member:hover {
+            transform: translateY(-8px) scale(1.04);
+            box-shadow: 0 8px 32px rgba(10,35,66,0.18);
+        }
+        .about-team-member img {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            border-radius: 18px;
+            z-index: 1;
+        }
+        .about-team-overlay {
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 100%;
+            background: rgba(10,35,66,0.82);
+            color: #ffe082;
+            padding: 32px 12px 18px 12px;
+            z-index: 2;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            border-radius: 0 0 18px 18px;
+        }
+        .about-team-overlay .team-name,
+        .about-team-overlay .team-email,
+        .about-team-overlay .team-contact {
+            font-weight: bold;
+            color: #ffe082;
+            text-shadow: 0 2px 8px rgba(10,35,66,0.18);
+            margin-bottom: 6px;
+        }
+        .about-team-overlay .team-name {
+            font-size: 1.25rem;
+            margin-bottom: 8px;
+        }
+        .about-team-overlay .team-email,
+        .about-team-overlay .team-contact {
+            font-size: 1.05rem;
+            margin-bottom: 4px;
+        }
+        @media (max-width: 1000px) {
+            .about-team-section {
+                gap: 24px 12px;
+            }
+            .about-team-member {
+                width: 44vw;
+                min-width: 220px;
+            }
+        }
+        @media (max-width: 900px) {
+            .about-fss-container {
+                flex-direction: column;
+                gap: 18px;
+                border-radius: 0;
+            }
+            .about-fss-image img {
+                max-width: 98vw;
+            }
+            .about-fss-text, .about-fss-image {
+               padding-left: 8vw;
+               padding-right: 8vw;
+            }
+        }
+        @media (max-width: 700px) {
+            .about-team-section {
+                flex-direction: column;
+                align-items: center;
+            }
+            .about-team-member {
+                width: 90vw;
+            }
+        }
+    </style>
+</head>
+<body>
+    {% include 'mainwebsite/header.html' %}
+    <img src="{% static 'images/about-banner.jpg' %}" alt="About Banner" class="about-banner-img">
+    <div class="about-bar">WHO WE ARE</div>
+    <div class="about-fss-container">
+      <div class="about-fss-text">
+        <h1>FSS</h1>
+        <p>
+          FSS is one of the pioneers in the security business of Pakistan. Founded in 1993, with the noble aim of providing employment opportunities to the retired Army personnel and generate funds for the families of Shuhadas, Army widows and welfare of soldiers. The Company earned a name in the country for providing well-trained and reliable security services to the national/multinational public and private sector organizations. With 32 years of its operational experience in Pakistan's most difficult law and order period, FSS has matured and diversified its services to meet the needs of even the most discerning clients.
+        </p>
+      </div>
+      <div class="about-fss-image">
+        <img src="{% static 'images/about-side.jpg' %}" alt="About FSS">
+      </div>
+    </div>
+    <div class="about-bar">OUR CEO MESSAGE</div>
+    <div class="about-fss-container">
+      <div class="about-fss-text">
+        <h1>FSS</h1>
+        <p>
+          FSS is one of the pioneers in the security business of Pakistan. Founded in 1993, with the noble aim of providing employment opportunities to the retired Army personnel and generate funds for the families of Shuhadas, Army widows and welfare of soldiers. The Company earned a name in the country for providing well-trained and reliable security services to the national/multinational public and private sector organizations. With 32 years of its operational experience in Pakistan's most difficult law and order period, FSS has matured and diversified its services to meet the needs of even the most discerning clients.
+        </p>
+      </div>
+      <div class="about-fss-image">
+        <img src="{% static 'images/about-side.jpg' %}" alt="About FSS">
+      </div>
+    </div>
+    <div class="about-team-bar">Our Team</div>
+    <div class="about-team-section">
+      <div class="about-team-member">
+        <img src="{% static 'images/team1.jpg' %}" alt="Team Member 1">
+        <div class="about-team-overlay">
+          <div class="team-name">John Doe</div>
+          <div class="team-email">john.doe@email.com</div>
+          <div class="team-contact">+92 300 1234567</div>
+        </div>
+      </div>
+      <div class="about-team-member">
+        <img src="{% static 'images/team2.jpg' %}" alt="Team Member 2">
+        <div class="about-team-overlay">
+          <div class="team-name">Jane Smith</div>
+          <div class="team-email">jane.smith@email.com</div>
+          <div class="team-contact">+92 300 2345678</div>
+        </div>
+      </div>
+      <div class="about-team-member">
+        <img src="{% static 'images/team3.jpg' %}" alt="Team Member 3">
+        <div class="about-team-overlay">
+          <div class="team-name">Ali Khan</div>
+          <div class="team-email">ali.khan@email.com</div>
+          <div class="team-contact">+92 300 3456789</div>
+        </div>
+      </div>
+      <div class="about-team-member">
+        <img src="{% static 'images/team4.jpg' %}" alt="Team Member 4">
+        <div class="about-team-overlay">
+          <div class="team-name">Sara Ahmed</div>
+          <div class="team-email">sara.ahmed@email.com</div>
+          <div class="team-contact">+92 300 4567890</div>
+        </div>
+      </div>
+      <div class="about-team-member">
+        <img src="{% static 'images/team5.jpg' %}" alt="Team Member 5">
+        <div class="about-team-overlay">
+          <div class="team-name">Bilal Raza</div>
+          <div class="team-email">bilal.raza@email.com</div>
+          <div class="team-contact">+92 300 5678901</div>
+        </div>
+      </div>
+      <div class="about-team-member">
+        <img src="{% static 'images/team6.jpg' %}" alt="Team Member 6">
+        <div class="about-team-overlay">
+          <div class="team-name">Fatima Noor</div>
+          <div class="team-email">fatima.noor@email.com</div>
+          <div class="team-contact">+92 300 6789012</div>
+        </div>
+      </div>
+    </div>
+    {% include 'mainwebsite/footer.html' %}
+</body>
+</html> 

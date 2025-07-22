@@ -1,0 +1,30 @@
+{% extends 'admin/change_list.html' %}
+{% block content %}
+  <h1>Firebase Contact Submissions</h1>
+  <table class="admin-table" style="width:100%;margin-top:24px;">
+    <thead>
+      <tr>
+        <th>Name</th>
+        <th>Email</th>
+        <th>Phone</th>
+        <th>City</th>
+        <th>Message</th>
+        <th>Submitted At</th>
+      </tr>
+    </thead>
+    <tbody>
+      {% for contact in contact_list %}
+        <tr>
+          <td>{{ contact.name }}</td>
+          <td>{{ contact.email }}</td>
+          <td>{{ contact.phone }}</td>
+          <td>{{ contact.city }}</td>
+          <td>{{ contact.message }}</td>
+          <td>{{ contact.submitted_at }}</td>
+        </tr>
+      {% empty %}
+        <tr><td colspan="6" style="text-align:center;">No contact submissions found in Firebase.</td></tr>
+      {% endfor %}
+    </tbody>
+  </table>
+{% endblock %} 

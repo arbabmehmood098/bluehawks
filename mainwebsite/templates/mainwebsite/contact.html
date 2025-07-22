@@ -1,0 +1,385 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Contact | Bluehawks</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css">
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@600;700&display=swap');
+        html, body {
+            margin: 0;
+            padding: 0;
+            width: 100vw;
+            min-width: 100vw;
+            box-sizing: border-box;
+            background: #0a2342;
+            font-family: 'Montserrat', Arial, sans-serif;
+        }
+        body {
+            width: 100vw;
+            min-width: 100vw;
+            overflow-x: hidden;
+            background: linear-gradient(90deg, #0a2342 0%, #185a9d 100%);
+        }
+        .contact-banner-img {
+            width: 100vw;
+            height: 25vh;
+            object-fit: cover;
+            display: block;
+            border-radius: 0 0 24px 24px;
+            box-shadow: 0 8px 32px 0 rgba(10,35,66,0.18);
+        }
+        .section-header {
+            background: linear-gradient(90deg, #0a2342 0%, #185a9d 100%);
+            color: #ffe082;
+            text-align: center;
+            padding: 28px 0 20px 0;
+            font-size: 2.1rem;
+            font-weight: 700;
+            letter-spacing: 1px;
+            border-radius: 0 0 18px 18px;
+            box-shadow: 0 2px 12px rgba(10,35,66,0.10);
+            margin-bottom: 3px;
+        }
+        .contact {
+            background: linear-gradient(120deg, #0a2342 60%, #185a9d 100%);
+            padding: 48px 5% 48px 5%;
+            display: flex;
+            flex-wrap: wrap;
+            gap: 32px;
+            border-radius: 18px;
+            box-shadow: 0 2px 18px rgba(10,35,66,0.10);
+            margin-bottom: 32px;
+        }
+        .contact .details {
+            flex: 1 1 300px;
+            font-size: 1.13rem;
+            line-height: 1.7;
+            color: #fff;
+        }
+        .contact .details p { margin-bottom: 16px; }
+        .contact .details a {
+            color: #ffe082;
+            text-decoration: underline;
+            font-weight: 600;
+            transition: color 0.18s;
+        }
+        .contact .details a:hover {
+            color: #fff;
+        }
+        .contact .map {
+            flex: 1 1 300px;
+            border-radius: 12px;
+            overflow: hidden;
+            box-shadow: 0 2px 12px rgba(10,35,66,0.10);
+        }
+        .contact .map iframe {
+            width: 100%;
+            height: 240px;
+            border: 0;
+            border-radius: 12px;
+        }
+        .divider {
+            width: 100%;
+            height: 60px;
+            background: #185a9d;
+            clip-path: polygon(0 0, 100% 30%, 100% 100%, 0% 100%);
+        }
+        .feedback {
+            background: #fff;
+            color: #0a2342;
+            padding: 48px 0 60px 0;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            border-radius: 18px;
+            box-shadow: 0 2px 18px rgba(10,35,66,0.10);
+            margin-bottom: 32px;
+        }
+        .feedback h2 {
+            text-align: center;
+            margin-bottom: 30px;
+            font-size: 2rem;
+            font-weight: 700;
+            color: #185a9d;
+        }
+        .feedback-form {
+            max-width: 700px;
+            width: 100%;
+            margin: 0 auto;
+            background: #f8f8f8;
+            padding: 36px 40px 28px 40px;
+            border-radius: 16px;
+            box-shadow: 0 2px 16px rgba(10,35,66,0.10);
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 22px 24px;
+            align-items: start;
+            justify-content: center;
+        }
+        .feedback-form .form-group {
+            margin-bottom: 0;
+            padding-left: 0;
+            padding-right: 0;
+        }
+        .feedback-form .form-group.full-width {
+            grid-column: 1 / -1;
+        }
+        .form-group {
+            position: relative;
+            margin-bottom: 8px;
+        }
+        .form-group input,
+        .form-group textarea {
+            width: 100%;
+            padding: 16px 12px 8px 12px;
+            border: 1.5px solid #185a9d;
+            border-radius: 8px;
+            background: #fff;
+            color: #0a2342;
+            font-size: 1rem;
+            outline: none;
+            transition: border 0.2s, box-shadow 0.2s;
+            resize: none;
+            box-shadow: 0 1px 4px rgba(10,35,66,0.06);
+        }
+        .form-group input:focus,
+        .form-group textarea:focus {
+            border-color: #ffe082;
+            box-shadow: 0 2px 8px rgba(255,224,130,0.13);
+        }
+        .form-group label {
+            position: absolute;
+            left: 14px;
+            top: 16px;
+            color: #185a9d;
+            font-size: 1rem;
+            pointer-events: none;
+            background: transparent;
+            transition: 0.2s;
+        }
+        .form-group input:focus + label,
+        .form-group input:not(:placeholder-shown) + label,
+        .form-group textarea:focus + label,
+        .form-group textarea:not(:placeholder-shown) + label {
+            top: -10px;
+            left: 10px;
+            font-size: 0.85rem;
+            color: #ffe082;
+            background: #f8f8f8;
+            padding: 0 4px;
+        }
+        .form-error {
+            color: #e31b23;
+            font-size: 0.93rem;
+            margin-top: 2px;
+            min-height: 18px;
+            text-align: left;
+        }
+        .feedback .submit-btn {
+            margin-left: 0;
+            padding: 12px 0;
+            border: none;
+            border-radius: 8px;
+            background: linear-gradient(90deg, #0a2342 0%, #185a9d 100%);
+            color: #ffe082;
+            font-size: 1.08rem;
+            font-weight: bold;
+            cursor: pointer;
+            box-shadow: 0 2px 8px rgba(10,35,66,0.10);
+            transition: background 0.2s, color 0.2s, box-shadow 0.18s, transform 0.18s;
+            letter-spacing: 1px;
+        }
+        .feedback .submit-btn:hover {
+            background: #ffe082;
+            color: #0a2342;
+            box-shadow: 0 4px 16px rgba(10,35,66,0.18);
+            transform: translateY(-2px) scale(1.04);
+        }
+        .feedback-form .form-group:not(.full-width):nth-child(odd) {
+          margin-right: 12px;
+        }
+        @media (max-width: 800px) {
+            .contact, .feedback {
+                padding-left: 20px;
+                padding-right: 20px;
+            }
+            .divider {
+                display: none;
+            }
+            .feedback-form {
+                grid-template-columns: 1fr;
+                padding: 18px 6vw 18px 6vw;
+            }
+            .feedback-form .form-group.full-width {
+                grid-column: 1 / -1;
+            }
+            .feedback-form .form-group:not(.full-width):nth-child(odd) {
+              margin-right: 0;
+            }
+        }
+        @media (max-width: 600px) {
+            .feedback {
+                padding: 24px 0 36px 0;
+            }
+            .feedback-form {
+                padding: 12px 3vw 12px 3vw;
+            }
+        }
+      /* Responsive tweaks for contact section */
+      @media (max-width: 1000px) {
+        .contact {
+          flex-direction: column;
+          gap: 0;
+        }
+        .contact .details, .contact .map {
+          width: 100%;
+          min-width: 0;
+          margin-bottom: 24px;
+        }
+        .contact .map iframe {
+          height: 180px;
+        }
+      }
+      @media (max-width: 700px) {
+        .section-header {
+          font-size: 1.2rem;
+          padding: 10px 0;
+        }
+        .contact {
+          padding: 24px 2vw;
+        }
+        .feedback {
+          padding: 18px 0 24px 0;
+        }
+        .divider {
+          height: 30px;
+        }
+      }
+      @media (max-width: 500px) {
+        .contact-banner-img {
+          height: 18vh;
+        }
+        .feedback-form {
+          padding: 8px 1vw 8px 1vw;
+        }
+        .form-group input, .form-group textarea {
+          font-size: 0.98rem;
+          padding: 12px 8px 6px 8px;
+        }
+        .feedback .submit-btn {
+          font-size: 1rem;
+        }
+      }
+    </style>
+</head>
+<body>
+    {% include 'mainwebsite/header.html' %}
+    <img src="{% static 'images/contact-banner.jpg' %}" alt="Contact Banner" class="contact-banner-img">
+    <div class="section-header">CONTACT US</div>
+    <section class="contact">
+      <div class="details">
+        <p>4th Floor Parkview Plaza, Main GT / Jhelum Road Opposite Ayub National Park, Rawalpindi.</p>
+        <p>Phone: 051‑514 6681<br>Fax: 051‑844 3845</p>
+        <p>
+          <a href="mailto:sm.hra@faujisecurities.com">sm.hra@faujisecurities.com</a><br>
+          <a href="mailto:sm.mktg@faujisecurities.com">sm.mktg@faujisecurities.com</a>
+        </p>
+      </div>
+      <div class="map">
+        <iframe
+          src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3261.1234567890!2d73.0000000!3d33.0000000!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x0000000000000000%3A0xabcdef1234567890!2sFauji%20Security%20Services!5e0!3m2!1sen!2s!4v0000000000000"
+          allowfullscreen
+          loading="lazy"
+        ></iframe>
+      </div>
+    </section>
+    <div class="divider"></div>
+    <div class="section-header">SEND US A MESSAGE</div>
+    <section class="feedback">
+      <form class="feedback-form" id="feedbackForm" novalidate>
+        <div class="form-group">
+          <input type="text" id="name" name="name" placeholder=" " required>
+          <label for="name">Name *</label>
+          <div class="form-error" id="error-name"></div>
+        </div>
+        <div class="form-group">
+          <input type="email" id="email" name="email" placeholder=" " required>
+          <label for="email">Email Address *</label>
+          <div class="form-error" id="error-email"></div>
+        </div>
+        <div class="form-group">
+          <input type="text" id="phone" name="phone" placeholder=" ">
+          <label for="phone">Phone</label>
+          <div class="form-error" id="error-phone"></div>
+        </div>
+        <div class="form-group">
+          <input type="text" id="city" name="city" placeholder=" ">
+          <label for="city">City</label>
+          <div class="form-error" id="error-city"></div>
+        </div>
+        <div class="form-group full-width">
+          <textarea id="message" name="message" placeholder=" " required></textarea>
+          <label for="message">Message *</label>
+          <div class="form-error" id="error-message"></div>
+        </div>
+        <button type="submit" class="submit-btn full-width">SUBMIT</button>
+      </form>
+    </section>
+    <script>
+      document.getElementById('feedbackForm').addEventListener('submit', function(e) {
+        e.preventDefault();
+        let valid = true;
+        // Name
+        const name = document.getElementById('name');
+        const errorName = document.getElementById('error-name');
+        if (!name.value.trim()) {
+          errorName.textContent = 'Name is required.';
+          valid = false;
+        } else {
+          errorName.textContent = '';
+        }
+        // Email
+        const email = document.getElementById('email');
+        const errorEmail = document.getElementById('error-email');
+        const emailPattern = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+        if (!email.value.trim()) {
+          errorEmail.textContent = 'Email is required.';
+          valid = false;
+        } else if (!emailPattern.test(email.value.trim())) {
+          errorEmail.textContent = 'Enter a valid email address.';
+          valid = false;
+        } else {
+          errorEmail.textContent = '';
+        }
+        // Phone (optional, but if present, must be valid)
+        const phone = document.getElementById('phone');
+        const errorPhone = document.getElementById('error-phone');
+        if (phone.value.trim() && !/^\+?\d{7,15}$/.test(phone.value.trim().replace(/\s+/g, ''))) {
+          errorPhone.textContent = 'Enter a valid phone number.';
+          valid = false;
+        } else {
+          errorPhone.textContent = '';
+        }
+        // City (optional)
+        document.getElementById('error-city').textContent = '';
+        // Message
+        const message = document.getElementById('message');
+        const errorMessage = document.getElementById('error-message');
+        if (!message.value.trim()) {
+          errorMessage.textContent = 'Message is required.';
+          valid = false;
+        } else {
+          errorMessage.textContent = '';
+        }
+        if (valid) {
+          this.submit();
+        }
+      });
+    </script>
+    {% include 'mainwebsite/footer.html' %}
+</body>
+</html> 

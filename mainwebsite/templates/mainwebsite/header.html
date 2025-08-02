@@ -1,175 +1,252 @@
 {% load static %}
 <style>
 @import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@600;700&display=swap');
+
 header {
     display: flex;
     align-items: center;
     justify-content: space-between;
-    height: 70px;
-    min-height: 70px;
-    padding: 0 36px;
+    height: 80px; /* Increased from 60px */
+    min-height: 80px; /* Increased from 60px */
+    padding: 0 20px;
     background: linear-gradient(90deg, #0a2342 0%, #185a9d 100%);
     color: #fff;
     border-bottom: 1.5px solid #06162b;
-    box-shadow: 0 4px 18px 0 rgba(10,35,66,0.10);
+    box-shadow: 0 4px 12px 0 rgba(10,35,66,0.10);
     font-family: 'Montserrat', Arial, sans-serif;
-    position: relative;
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
     z-index: 1000;
-    transition: box-shadow 0.3s;
+    transition: all 0.3s ease;
 }
+
 header:hover {
-    box-shadow: 0 8px 32px 0 rgba(10,35,66,0.18);
+    box-shadow: 0 6px 20px 0 rgba(10,35,66,0.18);
 }
-header > div {
+
+.header-container {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    width: 100%;
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+.logo-container {
     flex: 0 0 auto;
-    height: 100%;
     display: flex;
     align-items: center;
 }
+
 header img {
-    height: 62px;
-    width: 62px;
-    min-width: 62px;
-    min-height: 62px;
+    height: 65px; /* Increased from 50px */
+    width: 65px; /* Increased from 50px */
+    min-width: 65px; /* Increased from 50px */
+    min-height: 65px; /* Increased from 50px */
     border-radius: 50%;
     object-fit: cover;
     border: 2.5px solid #fff;
     background: #fff;
-    box-shadow: 0 2px 8px 0 rgba(24,90,157,0.10);
-    transition: transform 0.3s cubic-bezier(.4,2,.6,1), box-shadow 0.3s;
+    box-shadow: 0 2px 6px 0 rgba(24,90,157,0.10);
+    transition: all 0.3s cubic-bezier(.4,2,.6,1);
 }
+
 header img:hover {
     transform: scale(1.08) rotate(-6deg);
-    box-shadow: 0 6px 24px 0 rgba(24,90,157,0.18);
+    box-shadow: 0 4px 16px 0 rgba(24,90,157,0.18);
 }
+
 nav {
-    flex: 1 1 auto;
     display: flex;
-    justify-content: flex-end;
-    gap: 32px;
+    gap: 20px; /* Increased from 16px */
     align-items: center;
-    height: 100%;
     transition: all 0.3s;
 }
+
 nav a {
     text-decoration: none;
     color: #fff;
     font-weight: 600;
-    font-size: 1.13rem;
-    padding: 8px 18px;
-    border-radius: 6px;
-    transition: background 0.22s, color 0.22s, box-shadow 0.22s;
+    font-size: 1.1rem; /* Increased from 1rem */
+    padding: 8px 16px; /* Increased from 6px 12px */
+    border-radius: 4px;
+    transition: all 0.2s ease;
     position: relative;
-    letter-spacing: 0.5px;
+    letter-spacing: 0.3px;
+    white-space: nowrap;
 }
+
 nav a:hover, nav a:focus {
     background: rgba(24,90,157,0.18);
     color: #ffe082;
-    box-shadow: 0 2px 8px 0 rgba(24,90,157,0.10);
+    transform: translateY(-1px);
 }
+
 nav a::after {
     content: '';
-    display: block;
-    margin: 0 auto;
-    width: 0%;
+    position: absolute;
+    bottom: 0;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 0;
     height: 2px;
     background: #ffe082;
-    transition: width 0.22s;
+    transition: width 0.2s ease;
 }
+
 nav a:hover::after, nav a:focus::after {
-    width: 80%;
+    width: 70%;
 }
+
 .mobile-toggle {
     display: none;
+    background: none;
+    border: none;
+    color: #fff;
+    font-size: 1.8rem;
+    cursor: pointer;
+    padding: 8px;
+    margin-left: 10px;
+    transition: all 0.2s;
 }
-@media (max-width: 900px) {
+
+.mobile-toggle:hover {
+    color: #ffe082;
+    transform: scale(1.1);
+}
+
+/* Mobile styles */
+@media (max-width: 768px) {
     header {
+        height: 56px;
         padding: 0 12px;
     }
-    nav {
-        gap: 16px;
-    }
-}
-@media (max-width: 700px) {
-    header {
-        padding: 0 16px;
-        height: 70px;
-    }
-    .mobile-toggle {
-        display: flex !important;
-        align-items: center;
-        justify-content: center;
-        width: 48px;
-        height: 48px;
-        font-size: 2.4rem;
-        background: none;
-        border: none;
-        color: #fff;
-        cursor: pointer;
-        z-index: 1001;
+    
+    .header-container {
         padding: 0;
-        margin: 0;
-        transition: color 0.2s;
     }
-    .mobile-toggle:active {
-        color: #ffe082;
+    
+    header img {
+        height: 44px;
+        width: 44px;
+        min-width: 44px;
+        min-height: 44px;
+        border-width: 2px;
     }
+    
+    .mobile-toggle {
+        display: block;
+    }
+    
     nav {
         position: fixed;
-        top: 70px;
+        top: 56px;
         left: 0;
         right: 0;
         flex-direction: column;
         gap: 0;
         background: linear-gradient(90deg, #0a2342 0%, #185a9d 100%);
-        box-shadow: 0 8px 32px 0 rgba(10,35,66,0.18);
+        box-shadow: 0 6px 20px rgba(10,35,66,0.2);
         max-height: 0;
         overflow: hidden;
-        transition: max-height 0.35s ease-out;
+        transition: max-height 0.3s ease-out;
         padding: 0;
     }
+    
     header.nav-open nav {
-        max-height: 400px;
-        padding: 20px 0;
+        max-height: 280px;
+        padding: 10px 0;
     }
+    
     nav a {
         width: 100%;
         text-align: center;
         padding: 12px 0;
         border-radius: 0;
+        font-size: 1.1rem;
     }
+    
     nav a:hover {
         background: rgba(255, 255, 255, 0.1);
+        transform: none;
     }
+    
     nav a::after {
         display: none;
     }
 }
+
+/* Animation for smoother menu toggle */
+@keyframes fadeIn {
+    from { opacity: 0; transform: translateY(-10px); }
+    to { opacity: 1; transform: translateY(0); }
+}
+
+.nav-open nav a {
+    animation: fadeIn 0.3s ease forwards;
+}
+
+.nav-open nav a:nth-child(1) { animation-delay: 0.1s; }
+.nav-open nav a:nth-child(2) { animation-delay: 0.15s; }
+.nav-open nav a:nth-child(3) { animation-delay: 0.2s; }
+.nav-open nav a:nth-child(4) { animation-delay: 0.25s; }
+.nav-open nav a:nth-child(5) { animation-delay: 0.3s; }
 </style>
+
 <script>
 function toggleNav() {
-    var header = document.querySelector('header');
+    const header = document.querySelector('header');
     header.classList.toggle('nav-open');
+    const toggle = document.querySelector('.mobile-toggle');
+    toggle.setAttribute('aria-expanded', header.classList.contains('nav-open'));
     
-    // Close menu when clicking on a link
-    var navLinks = document.querySelectorAll('nav a');
-    navLinks.forEach(function(link) {
-        link.addEventListener('click', function() {
+    // Close menu when clicking on a link (event delegation)
+    document.addEventListener('click', function(e) {
+        if (header.classList.contains('nav-open') && e.target.closest('nav a')) {
             header.classList.remove('nav-open');
-        });
+            toggle.setAttribute('aria-expanded', 'false');
+        }
+    });
+    
+    // Close menu when pressing Escape key
+    document.addEventListener('keydown', function(e) {
+        if (e.key === 'Escape' && header.classList.contains('nav-open')) {
+            header.classList.remove('nav-open');
+            toggle.setAttribute('aria-expanded', 'false');
+        }
     });
 }
+
+// Close menu when clicking outside
+document.addEventListener('click', function(e) {
+    const header = document.querySelector('header');
+    const toggle = document.querySelector('.mobile-toggle');
+    if (header.classList.contains('nav-open') && 
+        !e.target.closest('nav') && 
+        !e.target.closest('.mobile-toggle')) {
+        header.classList.remove('nav-open');
+        toggle.setAttribute('aria-expanded', 'false');
+    }
+});
 </script>
+
 <header>
-    <div>
-        <img src="{% static 'images/Logo.png' %}" alt="Logo" />
+    <div class="header-container">
+        <div class="logo-container">
+            <img src="{% static 'images/Logo.png' %}" alt="Company Logo" />
+        </div>
+        <button class="mobile-toggle" onclick="toggleNav()" aria-label="Toggle navigation" aria-expanded="false">
+            &#9776;
+        </button>
+        <nav aria-label="Main navigation">
+            <a href="/">Home</a>
+            <a href="/about/">About</a>
+            <a href="/services/">Services</a>
+            <a href="/clients/">Clients</a>
+            <a href="/contact/">Contact</a>
+        </nav>
     </div>
-    <button class="mobile-toggle" onclick="toggleNav()" aria-label="Toggle navigation">&#9776;</button>
-    <nav>
-        <a href="/">Home</a>
-        <a href="/about/">About</a>
-        <a href="/services/">Services</a>
-        <a href="/clients/">Clients</a>
-        <a href="/contact/">Contact</a>
-    </nav>
 </header>

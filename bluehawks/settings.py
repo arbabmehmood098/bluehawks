@@ -32,6 +32,7 @@ ALLOWED_HOSTS = []
 # Application definition
 
 INSTALLED_APPS = [
+    'whitenoise.runserver_nonstatic',
     'django.contrib.admin',
     'django.contrib.auth',
     'django.contrib.contenttypes',
@@ -43,6 +44,7 @@ INSTALLED_APPS = [
 
 MIDDLEWARE = [
     'django.middleware.security.SecurityMiddleware',
+    'whitenoise.middleware.WhiteNoiseMiddleware',
     'django.contrib.sessions.middleware.SessionMiddleware',
     'django.middleware.common.CommonMiddleware',
     'django.middleware.csrf.CsrfViewMiddleware',
@@ -118,9 +120,13 @@ USE_TZ = True
 
 STATIC_URL = '/static/'
 
+# Where Django will look for static files you create manually
 STATICFILES_DIRS = [
     os.path.join(BASE_DIR, 'mainwebsite/static'),
 ]
+
+# Where Django will collect all static files (output folder for deployment)
+STATIC_ROOT = os.path.join(BASE_DIR, 'staticfiles')  # <- new folder outside 'mainwebsite'
 
 # Default primary key field type
 # https://docs.djangoproject.com/en/5.2/ref/settings/#default-auto-field

@@ -14,14 +14,14 @@
             width: 100vw;
             min-width: 100vw;
             box-sizing: border-box;
-            background: #0a2342;
+            background: #ffffff;
             font-family: 'Montserrat', Arial, sans-serif;
         }
         body {
             width: 100vw;
             min-width: 100vw;
             overflow-x: hidden;
-            background: linear-gradient(90deg, #0a2342 0%, #185a9d 100%);
+            background: #ffffff;
         }
         .contact-banner-img {
             width: 100vw;
@@ -44,30 +44,30 @@
             margin-bottom: 3px;
         }
         .contact {
-            background: linear-gradient(120deg, #0a2342 60%, #185a9d 100%);
+            background: linear-gradient(120deg, #ffffff 60%, #f8f9fa 100%);
             padding: 48px 5% 48px 5%;
             display: flex;
             flex-wrap: wrap;
             gap: 32px;
             border-radius: 18px;
-            box-shadow: 0 2px 18px rgba(10,35,66,0.10);
+            box-shadow: 0 2px 18px rgba(0,0,0,0.10);
             margin-bottom: 32px;
         }
         .contact .details {
             flex: 1 1 300px;
             font-size: 1.13rem;
             line-height: 1.7;
-            color: #fff;
+            color: #0a2342;
         }
         .contact .details p { margin-bottom: 16px; }
         .contact .details a {
-            color: #ffe082;
+            color: #185a9d;
             text-decoration: underline;
             font-weight: 600;
             transition: color 0.18s;
         }
         .contact .details a:hover {
-            color: #fff;
+            color: #0a2342;
         }
         .contact .map {
             flex: 1 1 300px;
@@ -84,7 +84,7 @@
         .divider {
             width: 100%;
             height: 60px;
-            background: #185a9d;
+            background: #f8f9fa;
             clip-path: polygon(0 0, 100% 30%, 100% 100%, 0% 100%);
         }
         .feedback {
@@ -131,6 +131,7 @@
         .form-group {
             position: relative;
             margin-bottom: 8px;
+            width: 100%;
         }
         .form-group input,
         .form-group textarea {
@@ -145,6 +146,12 @@
             transition: border 0.2s, box-shadow 0.2s;
             resize: none;
             box-shadow: 0 1px 4px rgba(10,35,66,0.06);
+            box-sizing: border-box;
+            min-height: 44px; /* Touch-friendly minimum height */
+        }
+        .form-group textarea {
+            min-height: 120px;
+            resize: vertical;
         }
         .form-group input:focus,
         .form-group textarea:focus {
@@ -160,6 +167,7 @@
             pointer-events: none;
             background: transparent;
             transition: 0.2s;
+            z-index: 1;
         }
         .form-group input:focus + label,
         .form-group input:not(:placeholder-shown) + label,
@@ -178,6 +186,7 @@
             margin-top: 2px;
             min-height: 18px;
             text-align: left;
+            padding-left: 2px;
         }
         .feedback .submit-btn {
             margin-left: 0;
@@ -212,7 +221,9 @@
             }
             .feedback-form {
                 grid-template-columns: 1fr;
-                padding: 18px 6vw 18px 6vw;
+                padding: 24px 20px;
+                gap: 16px;
+                margin: 0 10px;
             }
             .feedback-form .form-group.full-width {
                 grid-column: 1 / -1;
@@ -220,13 +231,81 @@
             .feedback-form .form-group:not(.full-width):nth-child(odd) {
               margin-right: 0;
             }
+            .form-group input,
+            .form-group textarea {
+                font-size: 16px; /* Prevents zoom on iOS */
+                padding: 16px 12px 8px 12px;
+            }
         }
         @media (max-width: 600px) {
             .feedback {
-                padding: 24px 0 36px 0;
+                padding: 20px 10px 30px 10px;
+            }
+            .feedback h2 {
+                font-size: 1.5rem;
+                margin-bottom: 20px;
             }
             .feedback-form {
-                padding: 12px 3vw 12px 3vw;
+                padding: 20px 15px;
+                gap: 12px;
+                margin: 0 5px;
+                border-radius: 12px;
+            }
+            .form-group input,
+            .form-group textarea {
+                font-size: 16px;
+                padding: 14px 10px 6px 10px;
+                border-radius: 6px;
+            }
+            .form-group label {
+                font-size: 0.9rem;
+                left: 12px;
+                top: 14px;
+            }
+            .form-group input:focus + label,
+            .form-group input:not(:placeholder-shown) + label,
+            .form-group textarea:focus + label,
+            .form-group textarea:not(:placeholder-shown) + label {
+                font-size: 0.75rem;
+                top: -8px;
+                left: 8px;
+            }
+            .feedback .submit-btn {
+                font-size: 1rem;
+                padding: 14px 0;
+                margin-top: 10px;
+            }
+        }
+        @media (max-width: 480px) {
+            .feedback {
+                padding: 15px 5px 25px 5px;
+            }
+            .feedback-form {
+                padding: 15px 10px;
+                gap: 10px;
+                margin: 0 2px;
+            }
+            .form-group input,
+            .form-group textarea {
+                font-size: 16px;
+                padding: 12px 8px 4px 8px;
+            }
+            .form-group label {
+                font-size: 0.85rem;
+                left: 10px;
+                top: 12px;
+            }
+            .form-group input:focus + label,
+            .form-group input:not(:placeholder-shown) + label,
+            .form-group textarea:focus + label,
+            .form-group textarea:not(:placeholder-shown) + label {
+                font-size: 0.7rem;
+                top: -6px;
+                left: 6px;
+            }
+            .feedback .submit-btn {
+                font-size: 0.95rem;
+                padding: 12px 0;
             }
         }
       /* Responsive tweaks for contact section */
@@ -274,26 +353,79 @@
           font-size: 1rem;
         }
       }
+      /* WhatsApp Float Button */
+      .whatsapp-float {
+        position: fixed;
+        width: 60px;
+        height: 60px;
+        bottom: 40px;
+        right: 40px;
+        background-color: #25d366;
+        color: #FFF;
+        border-radius: 50px;
+        text-align: center;
+        font-size: 30px;
+        box-shadow: 2px 2px 3px #999;
+        z-index: 1000;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        text-decoration: none;
+        transition: all 0.3s ease;
+        animation: pulse 2s infinite;
+      }
+      
+      .whatsapp-float:hover {
+        background-color: #128c7e;
+        transform: scale(1.1);
+        box-shadow: 0 4px 15px rgba(37, 211, 102, 0.4);
+      }
+      
+      @keyframes pulse {
+        0% {
+          box-shadow: 0 0 0 0 rgba(37, 211, 102, 0.7);
+        }
+        70% {
+          box-shadow: 0 0 0 10px rgba(37, 211, 102, 0);
+        }
+        100% {
+          box-shadow: 0 0 0 0 rgba(37, 211, 102, 0);
+        }
+      }
+      
+      @media (max-width: 768px) {
+        .whatsapp-float {
+          width: 50px;
+          height: 50px;
+          bottom: 20px;
+          right: 20px;
+          font-size: 25px;
+        }
+      }
     </style>
 </head>
 <body>
     {% include 'mainwebsite/header.html' %}
+    <a href="https://wa.me/923255661708" class="whatsapp-float" target="_blank" aria-label="Chat on WhatsApp">
+      <i class="fab fa-whatsapp"></i>
+    </a>
     <img src="{% static 'images/contact-banner.jpg' %}" alt="Contact Banner" class="contact-banner-img">
     <div class="section-header">CONTACT US</div>
     <section class="contact">
       <div class="details">
-        <p>4th Floor Parkview Plaza, Main GT / Jhelum Road Opposite Ayub National Park, Rawalpindi.</p>
-        <p>Phone: 051‑514 6681<br>Fax: 051‑844 3845</p>
+        <p>379, Block D Police Foundation, Islamabad, Pakistan</p>
+        <p>Phone: 051-8893 131<br>Fax: 051-8893 131</p>
         <p>
-          <a href="mailto:sm.hra@faujisecurities.com">sm.hra@faujisecurities.com</a><br>
-          <a href="mailto:sm.mktg@faujisecurities.com">sm.mktg@faujisecurities.com</a>
+          <a href="mailto:bluehawks317@gmail.com">bluehawks317@gmail.com</a>
         </p>
       </div>
       <div class="map">
         <iframe
-          src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3261.1234567890!2d73.0000000!3d33.0000000!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x0000000000000000%3A0xabcdef1234567890!2sFauji%20Security%20Services!5e0!3m2!1sen!2s!4v0000000000000"
+          src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3324.526273715829!2d73.1282133!3d33.565682599999995!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x38dfed00612b513f%3A0x8667891d5d93ef8b!2sGeneva%20Real%20Estate%20And%20Developers!5e0!3m2!1sen!2s!4v1754167132418!5m2!1sen!2s"
           allowfullscreen
           loading="lazy"
+          referrerpolicy="no-referrer-when-downgrade"
+          title="Bluehawks Security Services Location - Police Foundation"
         ></iframe>
       </div>
     </section>

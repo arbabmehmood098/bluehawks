@@ -2,167 +2,257 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Clients | Bluehawks</title>
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css">
-    <style>
-        @import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@600;700&display=swap');
-        html, body {
-            margin: 0;
-            padding: 0;
-            width: 100vw;
-            min-width: 100vw;
-            box-sizing: border-box;
-            background: #0a2342;
-            font-family: 'Montserrat', Arial, sans-serif;
-        }
-        body {
-            width: 100vw;
-            min-width: 100vw;
-            overflow-x: hidden;
-            background: linear-gradient(90deg, #0a2342 0%, #185a9d 100%);
-        }
-        .clients-banner-img {
-            width: 100vw;
-            height: 25vh;
-            object-fit: cover;
-            display: block;
-            border-radius: 0 0 24px 24px;
-            box-shadow: 0 8px 32px 0 rgba(10,35,66,0.18);
-        }
-        .clients-title-bar {
-            width: 100vw;
-            background: linear-gradient(90deg, #0a2342 0%, #185a9d 100%);
-            color: #ffe082;
-            text-align: center;
-            font-size: 2.1rem;
-            font-weight: 700;
-            padding: 28px 0 20px 0;
-            letter-spacing: 1px;
-            margin-bottom: 3px;
-            border-radius: 0 0 18px 18px;
-            box-shadow: 0 2px 12px rgba(10,35,66,0.10);
-        }
-        .clients-gallery-section {
-            width: 100vw;
-            background: transparent;
-            padding: 48px 0 48px 0;
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-        }
-        .clients-gallery-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
-            gap: 32px;
-            width: 90vw;
-            max-width: 1200px;
-            margin: 0 auto;
-        }
-        .client-card {
-            background: linear-gradient(120deg, #0a2342 60%, #185a9d 100%);
-            border-radius: 18px;
-            box-shadow: 0 4px 18px rgba(10,35,66,0.10);
-            overflow: hidden;
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-            transition: transform 0.18s, box-shadow 0.18s;
-            min-height: 340px;
-            border: 2px solid #ffe08222;
-        }
-        .client-card:hover {
-            transform: translateY(-8px) scale(1.04);
-            box-shadow: 0 8px 32px rgba(10,35,66,0.18);
-            border-color: #ffe082;
-        }
-        .client-img {
-            width: 100%;
-            height: 180px;
-            object-fit: cover;
-            background: #e3f0fb;
-            border-bottom: 2px solid #ffe082;
-        }
-        .client-content {
-            padding: 22px 16px 16px 16px;
-            text-align: center;
-        }
-        .client-title {
-            font-size: 1.18rem;
-            font-weight: bold;
-            color: #ffe082;
-            margin-bottom: 8px;
-            letter-spacing: 0.5px;
-        }
-        .client-desc {
-            font-size: 1.02rem;
-            color: #fff;
-            line-height: 1.5;
-        }
-        @media (max-width: 700px) {
-            .clients-gallery-section {
-                padding: 18px 0 18px 0;
-            }
-            .clients-gallery-grid {
-                gap: 16px;
-            }
-            .client-img {
-                height: 120px;
-            }
-        }
-    </style>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Clients | Bluehawks</title>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css">
+  <style>
+    @import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@600;700&display=swap');
+
+    html, body {
+      margin: 0;
+      padding: 0;
+      width: 100vw;
+      box-sizing: border-box;
+      background: #ffffff;
+      font-family: 'Montserrat', Arial, sans-serif;
+      color: #333;
+    }
+
+    body {
+      width: 100vw;
+      overflow-x: hidden;
+      background: #ffffff;
+      margin-top: 0;
+      padding-top: 75px;
+    }
+
+    .clients-title-bar {
+      width: 100vw;
+      background: #0a2342;
+      color: #ffe082;
+      text-align: center;
+      font-size: 2.1rem;
+      font-weight: 700;
+      padding: 28px 0 20px 0;
+      letter-spacing: 1px;
+      margin-bottom: 3px;
+      border-radius: 0;
+      box-shadow: 0 2px 12px rgba(0,0,0,0.08);
+    }
+
+    .animated-text {
+      display: inline-block;
+      opacity: 0;
+      transform: translateY(30px);
+      animation: fadeInUp 2s ease-out forwards;
+      margin: 0 auto;
+    }
+
+    @keyframes fadeInUp {
+      0% {
+        opacity: 0;
+        transform: translateY(30px);
+      }
+      100% {
+        opacity: 1;
+        transform: translateY(0);
+      }
+    }
+
+    .clients-gallery-section {
+      width: 100vw;
+      background: #ffffff;
+      padding: 48px 0;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+    }
+
+    .clients-gallery-grid {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 32px;
+      width: 90vw;
+      max-width: 1200px;
+      margin: 0 auto;
+      justify-items: center;
+    }
+
+    @media (max-width: 1000px) {
+      .clients-gallery-grid {
+        grid-template-columns: repeat(2, 1fr);
+      }
+    }
+
+    @media (max-width: 600px) {
+      .clients-gallery-grid {
+        grid-template-columns: 1fr;
+      }
+    }
+
+    .client-card {
+      width: 250px;
+      border-radius: 10px;
+      overflow: hidden;
+      box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+      background-color: #ffffff;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      transition: box-shadow 0.2s;
+    }
+
+    .client-card:hover {
+      box-shadow: 0 8px 24px rgba(0,0,0,0.2);
+    }
+
+    .client-card img {
+      transition: transform 0.25s ease, box-shadow 0.2s;
+    }
+
+    .client-card:hover img {
+      transform: scale(1.08);
+      box-shadow: 0 4px 24px rgba(33,150,243,0.2);
+    }
+
+    .client-img {
+      width: 100%;
+      height: 160px;
+      object-fit: contain;
+      background: none;
+    }
+
+    .client-content {
+      padding: 22px 16px 16px 16px;
+      text-align: center;
+    }
+
+    .client-title {
+      font-size: 1.18rem;
+      font-weight: bold;
+      color: #0a2342;
+      margin-bottom: 8px;
+      letter-spacing: 0.5px;
+    }
+
+    .client-desc {
+      font-size: 1.02rem;
+      color: #555;
+      line-height: 1.5;
+    }
+    /* WhatsApp Float Button */
+    .whatsapp-float {
+      position: fixed;
+      width: 60px;
+      height: 60px;
+      bottom: 40px;
+      right: 40px;
+      background-color: #25d366;
+      color: #FFF;
+      border-radius: 50px;
+      text-align: center;
+      font-size: 30px;
+      box-shadow: 2px 2px 3px #999;
+      z-index: 1000;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      text-decoration: none;
+      transition: all 0.3s ease;
+      animation: pulse 2s infinite;
+    }
+    
+    .whatsapp-float:hover {
+      background-color: #128c7e;
+      transform: scale(1.1);
+      box-shadow: 0 4px 15px rgba(37, 211, 102, 0.4);
+    }
+    
+    @keyframes pulse {
+      0% {
+        box-shadow: 0 0 0 0 rgba(37, 211, 102, 0.7);
+      }
+      70% {
+        box-shadow: 0 0 0 10px rgba(37, 211, 102, 0);
+      }
+      100% {
+        box-shadow: 0 0 0 0 rgba(37, 211, 102, 0);
+      }
+    }
+    
+    @media (max-width: 768px) {
+      .whatsapp-float {
+        width: 50px;
+        height: 50px;
+        bottom: 20px;
+        right: 20px;
+        font-size: 25px;
+      }
+    }
+  </style>
 </head>
 <body>
-    {% include 'mainwebsite/header.html' %}
-    <img src="{% static 'images/clients-banner.jpg' %}" alt="Clients Banner" class="clients-banner-img">
-    <div class="clients-title-bar">OUR CLIENTS</div>
-    <div class="clients-gallery-section">
-      <div class="clients-gallery-grid">
-        <div class="client-card">
-          <img src="{% static 'images/client1.jpg' %}" alt="Client 1" class="client-img">
-          <div class="client-content">
-            <div class="client-title">Client Name 1</div>
-            <div class="client-desc">Description or testimonial for client 1 goes here. You can add more details about the client or their experience.</div>
-          </div>
-        </div>
-        <div class="client-card">
-          <img src="{% static 'images/client2.jpg' %}" alt="Client 2" class="client-img">
-          <div class="client-content">
-            <div class="client-title">Client Name 2</div>
-            <div class="client-desc">Description or testimonial for client 2 goes here. You can add more details about the client or their experience.</div>
-          </div>
-        </div>
-        <div class="client-card">
-          <img src="{% static 'images/client3.jpg' %}" alt="Client 3" class="client-img">
-          <div class="client-content">
-            <div class="client-title">Client Name 3</div>
-            <div class="client-desc">Description or testimonial for client 3 goes here. You can add more details about the client or their experience.</div>
-          </div>
-        </div>
-        <div class="client-card">
-          <img src="{% static 'images/client4.jpg' %}" alt="Client 4" class="client-img">
-          <div class="client-content">
-            <div class="client-title">Client Name 4</div>
-            <div class="client-desc">Description or testimonial for client 4 goes here. You can add more details about the client or their experience.</div>
-          </div>
-        </div>
-        <div class="client-card">
-          <img src="{% static 'images/client5.jpg' %}" alt="Client 5" class="client-img">
-          <div class="client-content">
-            <div class="client-title">Client Name 5</div>
-            <div class="client-desc">Description or testimonial for client 5 goes here. You can add more details about the client or their experience.</div>
-          </div>
-        </div>
-        <div class="client-card">
-          <img src="{% static 'images/client6.jpg' %}" alt="Client 6" class="client-img">
-          <div class="client-content">
-            <div class="client-title">Client Name 6</div>
-            <div class="client-desc">Description or testimonial for client 6 goes here. You can add more details about the client or their experience.</div>
-          </div>
-        </div>
+  {% include 'mainwebsite/header.html' %}
+  <div class="clients-title-bar">
+    <span class="animated-text">OUR CLIENTS</span>
+  </div>
+  <div class="clients-gallery-section">
+    <div class="clients-gallery-grid">
+      <div class="client-card">
+        <img src="{% static 'Logo/attocklogo.png' %}" alt="attocklogo" class="client-img">
+      </div>
+      <div class="client-card">
+        <img src="{% static 'Logo/pso.png' %}" alt="pso" class="client-img">
+      </div>
+      <div class="client-card">
+        <img src="{% static 'Logo/shaafihospital.png' %}" alt="shaafihospital" class="client-img">
+      </div>
+      <div class="client-card">
+        <img src="{% static 'Logo/khatoonhospital.jfif' %}" alt="khatoonhospital" class="client-img">
+      </div>
+      <div class="client-card">
+        <img src="{% static 'Logo/nigerayebassy.jfif' %}" alt="nigerayebassy" class="client-img">
+      </div>
+      <div class="client-card">
+        <img src="{% static 'Logo/comsats.jfif' %}" alt="comsats" class="client-img">
+      </div>
+      <div class="client-card">
+        <img src="{% static 'Logo/cpec.jfif' %}" alt="cpec" class="client-img">
+      </div>
+      <div class="client-card">
+        <img src="{% static 'Logo/Uhrs.png' %}" alt="Uhrs" class="client-img">
+      </div>
+      <div class="client-card">
+        <img src="{% static 'Logo/monteralmarki.jfif' %}" alt="monteralmarki" class="client-img">
+      </div>
+      <div class="client-card">
+        <img src="{% static 'Logo/imarassociates.jfif' %}" alt="imarassociates" class="client-img">
+      </div>
+      <div class="client-card">
+        <img src="{% static 'Logo/download.jfif' %}" alt="download" class="client-img">
+      </div>
+      <div class="client-card">
+        <img src="{% static 'Logo/cda.jfif' %}" alt="cda" class="client-img">
+      </div>
+      <div class="client-card">
+        <img src="{% static 'Logo/feedmill.jfif' %}" alt="feedmill" class="client-img">
+      </div>
+      <div class="client-card">
+        <img src="{% static 'Logo/rathore.jfif' %}" alt="rathore" class="client-img">
+      </div>
+      <div class="client-card">
+        <img src="{% static 'Logo/safemart.png' %}" alt="safemart" class="client-img">
+      </div>
+      <div class="client-card">
+        <img src="{% static 'Logo/police-foundation.jfif' %}" alt="police-foundation" class="client-img">
       </div>
     </div>
-    {% include 'mainwebsite/footer.html' %}
+  </div>
+  <a href="https://wa.me/923255661708" class="whatsapp-float" target="_blank" aria-label="Chat on WhatsApp">
+    <i class="fab fa-whatsapp"></i>
+  </a>
+  {% include 'mainwebsite/footer.html' %}
 </body>
-</html> 
+</html>

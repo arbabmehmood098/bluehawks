@@ -2,201 +2,326 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Services | Bluehawks</title>
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css">
-    <style>
-        @import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@600;700&display=swap');
-        html, body {
-            margin: 0;
-            padding: 0;
-            width: 100vw;
-            min-width: 100vw;
-            box-sizing: border-box;
-            background: #0a2342;
-            font-family: 'Montserrat', Arial, sans-serif;
-        }
-        body {
-            width: 100vw;
-            min-width: 100vw;
-            overflow-x: hidden;
-            background: linear-gradient(90deg, #0a2342 0%, #185a9d 100%);
-        }
-        .services-banner-img {
-            width: 100vw;
-            height: 25vh;
-            object-fit: cover;
-            display: block;
-            border-radius: 0 0 24px 24px;
-            box-shadow: 0 8px 32px 0 rgba(10,35,66,0.18);
-        }
-        .services-title-bar {
-            width: 100vw;
-            background: linear-gradient(90deg, #0a2342 0%, #185a9d 100%);
-            color: #ffe082;
-            text-align: center;
-            font-size: 2.1rem;
-            font-weight: 700;
-            padding: 28px 0 20px 0;
-            letter-spacing: 1px;
-            margin-bottom: 3px;
-            border-radius: 0 0 18px 18px;
-            box-shadow: 0 2px 12px rgba(10,35,66,0.10);
-        }
-        .major-services-section {
-            width: 100vw;
-            display: flex;
-            flex-wrap: wrap;
-            justify-content: center;
-            gap: 32px 0;
-            background: transparent;
-            padding: 48px 0 48px 0;
-        }
-        .major-service-card {
-            width: 48vw;
-            max-width: 520px;
-            min-width: 280px;
-            background: linear-gradient(120deg, #0a2342 60%, #185a9d 100%);
-            border-radius: 18px;
-            box-shadow: 0 4px 18px rgba(10,35,66,0.10);
-            margin: 16px;
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-            overflow: hidden;
-            transition: transform 0.18s, box-shadow 0.18s, border 0.18s;
-            border: 2px solid #ffe08222;
-        }
-        .major-service-card:hover {
-            transform: translateY(-8px) scale(1.04);
-            box-shadow: 0 8px 32px rgba(10,35,66,0.18);
-            border-color: #ffe082;
-        }
-        .major-service-img {
-            width: 100%;
-            height: 320px;
-            object-fit: cover;
-            background: #e3f0fb;
-            border-bottom: 2px solid #ffe082;
-        }
-        .major-service-content {
-            padding: 28px 22px 22px 22px;
-            text-align: center;
-        }
-        .major-service-title {
-            font-size: 1.35rem;
-            font-weight: bold;
-            color: #ffe082;
-            margin-bottom: 12px;
-            letter-spacing: 1px;
-        }
-        .major-service-desc {
-            font-size: 1.08rem;
-            color: #fff;
-            line-height: 1.6;
-        }
-        .guarding-list-card {
-            background: #f4f8fc;
-            border-radius: 14px;
-            box-shadow: 0 2px 8px rgba(10,35,66,0.06);
-            padding: 22px 18px 16px 18px;
-            margin-top: 8px;
-        }
-        .guarding-list-card-title {
-            font-size: 1.08rem;
-            font-weight: 600;
-            color: #0a2342;
-            text-align: center;
-            margin-bottom: 14px;
-            letter-spacing: 0.5px;
-        }
-        .guarding-list {
-            list-style: none;
-            padding: 0;
-            margin: 0;
-        }
-        .guarding-list li {
-            display: flex;
-            align-items: flex-start;
-            gap: 10px;
-            margin-bottom: 10px;
-            color: #185a9d;
-            font-size: 1.08em;
-        }
-        .guarding-list li span:first-child {
-            color: #2196f3;
-            font-size: 1.2em;
-            line-height: 1.2;
-        }
-        .guarding-list li span:last-child {
-            color: #0a2342;
-            font-size: 1em;
-        }
-        @media (max-width: 900px) {
-            .major-services-section {
-                flex-direction: column;
-                align-items: center;
-                gap: 18px 0;
-            }
-            .major-service-card {
-                width: 94vw;
-                max-width: 98vw;
-            }
-            .major-service-img {
-                height: 220px;
-            }
-        }
-    </style>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Services | Bluehawks</title>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css"/>
+  <style>
+    @import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@600;700&display=swap');
+
+    html, body {
+      margin: 0;
+      padding: 0;
+      width: 100%;
+      box-sizing: border-box;
+      font-family: 'Montserrat', Arial, sans-serif;
+      background: #ffffff;
+      color: #333;
+      overflow-x: hidden;
+    }
+
+    .services-banner-img {
+      width: 100%;
+      height: 25vh;
+      object-fit: cover;
+      display: block;
+      border-radius: 0 0 24px 24px;
+      box-shadow: 0 8px 32px 0 rgba(0, 0, 0, 0.08);
+    }
+
+    .services-title-bar {
+      width: 100%;
+      background: linear-gradient(90deg, #004080 0%, #0072c6 100%);
+      color: #ffffff;
+      text-align: center;
+      font-size: 2rem;
+      font-weight: 700;
+      padding: 28px 0 20px;
+      margin-bottom: 3px;
+      border-radius: 0 0 18px 18px;
+      box-shadow: 0 2px 12px rgba(0, 0, 0, 0.1);
+    }
+
+    .major-services-section {
+      width: 100%;
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+      gap: 32px 0;
+      background: #ffffff;
+      padding: 48px 0;
+    }
+
+    .major-service-card {
+      width: 48vw;
+      max-width: 520px;
+      min-width: 280px;
+      background: #f9f9f9;
+      border-radius: 18px;
+      box-shadow: 0 4px 18px rgba(0, 0, 0, 0.08);
+      margin: 16px;
+      display: flex;
+      flex-direction: column;
+      overflow: hidden;
+      transition: transform 0.2s, box-shadow 0.2s;
+      border: 1px solid #ddd;
+    }
+
+    .major-service-card:hover {
+      transform: translateY(-6px);
+      box-shadow: 0 10px 32px rgba(0, 0, 0, 0.12);
+    }
+
+    .major-service-img {
+      width: 100%;
+      height: 240px;
+      object-fit: cover;
+      background: #eaeaea;
+      border-bottom: 2px solid #0072c6;
+    }
+
+    .major-service-content {
+      padding: 28px 22px 22px;
+      text-align: center;
+      flex: 1;
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+    }
+
+    .major-service-title {
+      font-size: 1.4rem;
+      font-weight: 700;
+      color: #004080;
+      margin-bottom: 12px;
+    }
+
+    .major-service-desc {
+      font-size: 1.05rem;
+      color: #444;
+      line-height: 1.6;
+      margin-bottom: 16px;
+    }
+
+    .guarding-list-card {
+      background: #ffffff;
+      border-radius: 14px;
+      box-shadow: 0 2px 8px rgba(0, 0, 0, 0.06);
+      padding: 18px;
+      color: #333;
+    }
+
+    .guarding-list-card-title {
+      font-size: 1rem;
+      font-weight: 600;
+      color: #004080;
+      text-align: center;
+      margin-bottom: 14px;
+    }
+
+    .guarding-list {
+      list-style: none;
+      padding: 0;
+      margin: 0;
+      text-align: left;
+    }
+
+    .guarding-list li {
+      display: flex;
+      align-items: flex-start;
+      gap: 10px;
+      margin-bottom: 10px;
+      font-size: 1rem;
+      color: #333;
+    }
+
+    .guarding-list li span:first-child {
+      color: #0072c6;
+      font-size: 1.2em;
+    }
+
+    /* WhatsApp Float Button */
+    .whatsapp-float {
+      position: fixed;
+      width: 60px;
+      height: 60px;
+      bottom: 40px;
+      right: 40px;
+      background-color: #25d366;
+      color: #FFF;
+      border-radius: 50px;
+      text-align: center;
+      font-size: 30px;
+      box-shadow: 2px 2px 3px #999;
+      z-index: 1000;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      text-decoration: none;
+      transition: all 0.3s ease;
+      animation: pulse 2s infinite;
+    }
+
+    .whatsapp-float:hover {
+      background-color: #128c7e;
+      transform: scale(1.1);
+      box-shadow: 0 4px 15px rgba(37, 211, 102, 0.4);
+    }
+
+    @keyframes pulse {
+      0% {
+        box-shadow: 0 0 0 0 rgba(37, 211, 102, 0.7);
+      }
+      70% {
+        box-shadow: 0 0 0 10px rgba(37, 211, 102, 0);
+      }
+      100% {
+        box-shadow: 0 0 0 0 rgba(37, 211, 102, 0);
+      }
+    }
+
+    /* Full-width footer container */
+    .footer-container {
+      width: 100%;
+      margin: 0;
+      padding: 0;
+    }
+
+    @media (max-width: 900px) {
+      .major-services-section {
+        flex-direction: column;
+        align-items: center;
+        gap: 24px;
+      }
+
+      .major-service-card {
+        width: 94vw;
+        max-width: 98vw;
+      }
+
+      .major-service-img {
+        height: 200px;
+      }
+
+      .whatsapp-float {
+        width: 50px;
+        height: 50px;
+        bottom: 20px;
+        right: 20px;
+        font-size: 25px;
+      }
+    }
+  </style>
 </head>
 <body>
-    {% include 'mainwebsite/header.html' %}
-    <img src="{% static 'images/services-banner.jpg' %}" alt="Services Banner" class="services-banner-img">
-    <div class="services-title-bar">OUR SERVICES</div>
-    <div class="major-services-section">
-      <div class="major-service-card">
-        <img src="{% static 'images/major-guarding.jpg' %}" alt="Guarding Services" class="major-service-img">
-        <div class="major-service-content" style="padding-bottom: 10px;">
-          <div class="major-service-title" style="text-align:center;">GUARDING SERVICES</div>
-          <div class="major-service-desc" style="text-align:center; margin-bottom: 18px;">Professional, reliable, and highly trained security personnel to protect your assets and ensure peace of mind for your business and family.</div>
-          <div class="guarding-list-card">
-            <div class="guarding-list-card-title">FSS can provide you with the following types of security personnel:</div>
+  {% include 'mainwebsite/header.html' %}
+
+  <a href="https://wa.me/923255661708" class="whatsapp-float" target="_blank" aria-label="Chat on WhatsApp">
+    <i class="fab fa-whatsapp"></i>
+  </a>
+
+  <img src="{% static 'images/services-banner.jpg' %}" alt="Services Banner" class="services-banner-img">
+  <div class="services-title-bar">OUR SERVICES</div>
+
+  <div class="major-services-section">
+    <!-- GUARDING SERVICES CARD -->
+    <div class="major-service-card">
+      <img src="{% static 'images/garding-services.jpg' %}" alt="Guarding Services" class="major-service-img">
+      <div class="major-service-content">
+        <div class="major-service-title">GUARDING SERVICES</div>
+        <div class="major-service-desc">
+          Dependable and disciplined personnel to secure your premises, staff, and operations—available for residential, corporate, and high-risk environments.
+        </div>
+        <div class="guarding-list-card">
+          <div class="guarding-list-card-title">We provide highly trained security personnel tailored to your unique protection needs:</div>
+          <ul class="guarding-list">
+            <li><span>&#9679;</span> <span>Elite Ex-SSG Commandos for critical and high-risk sites</span></li>
+            <li><span>&#9679;</span> <span>Professionally trained guards from military and civilian backgrounds</span></li>
+            <li><span>&#9679;</span> <span>Unarmed guards for routine monitoring and access control</span></li>
+            <li><span>&#9679;</span> <span>Trained female security staff for screening and sensitive roles</span></li>
+            <li><span>&#9679;</span> <span>Mobile security escorts and vehicle convoy protection</span></li>
+            <li><span>&#9679;</span> <span>Provision of bulletproof vehicles upon request</span></li>
+            <li><span>&#9679;</span> <span>Close protection officers for executives and VIPs</span></li>
+            <li><span>&#9679;</span> <span>Sniper-trained response teams for extreme threats</span></li>
+            <li><span>&#9679;</span> <span>Security coverage and crowd control for events</span></li>
+          </ul>
+        </div>
+      </div>
+    </div>
+
+    <!-- TRANSPORT WITH SECURITY SERVICES CARD -->
+    <div class="major-service-card">
+      <img src="{% static 'images/second-card-services.jpg' %}" alt="Secure Transport Services" class="major-service-img">
+      <div class="major-service-content">
+        <div class="major-service-title">SECURE TRANSPORT SERVICES</div>
+        <div class="major-service-desc">
+          Safe, discreet, and fully protected movement of high-value assets, confidential documents, and sensitive materials across Pakistan—delivered with precision and backed by tactical expertise.
+        </div>
+        <div class="guarding-list-card">
+          <div class="guarding-list-card-title">
+            Our secure transport division ensures end-to-end protection of your physical and financial assets using advanced technology, route planning, and professional armed personnel. Our specialized services include:
+          </div>
+          <ul class="guarding-list">
+            <li><span>&#9679;</span> <span>Dedicated armed escort teams trained for high-value, high-risk consignments</span></li>
+            <li><span>&#9679;</span> <span>GPS-enabled armored and standard vehicles with 24/7 real-time route tracking</span></li>
+            <li><span>&#9679;</span> <span>Route planning, reconnaissance, and pre-defined risk assessments to minimize exposure</span></li>
+            <li><span>&#9679;</span> <span>Special handling protocols for sensitive, classified, or fragile materials</span></li>
+            <li><span>&#9679;</span> <span>Secure transport of corporate cash, jewelry, documentation, and legal records</span></li>
+            <li><span>&#9679;</span> <span>Discreet and timely operations with maximum confidentiality and accountability</span></li>
+          </ul>
+        </div>
+      </div>
+    </div>
+
+    <!-- ELECTRONIC SECURITY SYSTEMS CARD -->
+    <div class="major-service-card">
+      <img src="{% static 'images/services-card-3.jpg' %}" alt="Electronic Security Systems" class="major-service-img">
+      <div class="major-service-content">
+        <div class="major-service-title">ELECTRONIC SECURITY SYSTEMS</div>
+        <div class="major-service-desc">
+          Advanced surveillance and automation systems that help you monitor, prevent, and respond to security breaches in real-time.
+        </div>
+        <div class="guarding-list-card">
+          <div class="guarding-list-card-title">
+            Our solutions are designed to enhance security through intelligent automation and 24/7 vigilance:
             <ul class="guarding-list">
-              <li><span>&#9679;</span> <span>Commandos (Ex SSG).</span></li>
-              <li><span>&#9679;</span> <span>Highly Professional, Efficient / Smart Guards.<br><span style='font-size:0.97em;'>(Ex Army and Energetic Civilians)</span></span></li>
-              <li><span>&#9679;</span> <span>Unarmed Guards.</span></li>
-              <li><span>&#9679;</span> <span>Lady Searchers.</span></li>
-              <li><span>&#9679;</span> <span>Mobile Escort Services.</span></li>
-              <li><span>&#9679;</span> <span>Bullet Proof Vehicles.</span></li>
-              <li><span>&#9679;</span> <span>Close Protection Teams.</span></li>
-              <li><span>&#9679;</span> <span>Sniper Squads.</span></li>
-              <li><span>&#9679;</span> <span>Integrated Security Solutions for Events Management.</span></li>
+              <li><span>&#9679;</span> <span>HD CCTV cameras with remote access and cloud backup</span></li>
+              <li><span>&#9679;</span> <span>Motion detectors and smart intrusion alarms</span></li>
+              <li><span>&#9679;</span> <span>Biometric and RFID access control systems</span></li>
+              <li><span>&#9679;</span> <span>Control room setup and centralized monitoring</span></li>
+              <li><span>&#9679;</span> <span>Integrated alert and notification systems</span></li>
             </ul>
           </div>
         </div>
       </div>
-      <div class="major-service-card">
-        <img src="{% static 'images/major-transport.jpg' %}" alt="Transport with Security Services" class="major-service-img">
-        <div class="major-service-content">
-          <div class="major-service-title">TRANSPORT WITH SECURITY SERVICES</div>
-          <div class="major-service-desc">Secure and efficient transportation of valuables, cash, and sensitive materials with armed escort and advanced tracking solutions.</div>
+    </div>
+
+    <!-- CONSULTANCY & TRAINING CARD -->
+    <div class="major-service-card">
+      <img src="{% static 'images/service-card-4.jpg' %}" alt="Consultancy & Training" class="major-service-img">
+      <div class="major-service-content">
+        <div class="major-service-title">CONSULTANCY & TRAINING</div>
+        <div class="major-service-desc">
+          Expert guidance and hands-on training programs that empower your team to manage risks, respond to emergencies, and maintain safety standards.
         </div>
-      </div>
-      <div class="major-service-card">
-        <img src="{% static 'images/major-electronic.jpg' %}" alt="Electronic Security Systems" class="major-service-img">
-        <div class="major-service-content">
-          <div class="major-service-title">ELECTRONIC SECURITY SYSTEMS</div>
-          <div class="major-service-desc">Cutting-edge electronic security solutions including CCTV, alarms, access control, and monitoring for comprehensive protection.</div>
-        </div>
-      </div>
-      <div class="major-service-card">
-        <img src="{% static 'images/major-consultancy.jpg' %}" alt="Consultancy & Training" class="major-service-img">
-        <div class="major-service-content">
-          <div class="major-service-title">CONSULTANCY & TRAINING</div>
-          <div class="major-service-desc">Expert security consultancy and professional training programs to empower your staff and enhance your organization’s safety culture.</div>
+        <div class="guarding-list-card">
+          <div class="guarding-list-card-title">
+            We help organizations build strong internal security protocols through:
+            <ul class="guarding-list">
+              <li><span>&#9679;</span> <span>Security risk assessments and compliance audits</span></li>
+              <li><span>&#9679;</span> <span>On-site safety drills and emergency simulations</span></li>
+              <li><span>&#9679;</span> <span>Conflict resolution and incident response training</span></li>
+              <li><span>&#9679;</span> <span>Surveillance and patrolling strategies</span></li>
+              <li><span>&#9679;</span> <span>Corporate training on threat awareness and reporting</span></li>
+            </ul>
+          </div>
         </div>
       </div>
     </div>
+  </div>
+
+  <div class="footer-container">
     {% include 'mainwebsite/footer.html' %}
+  </div>
 </body>
-</html> 
+</html>
